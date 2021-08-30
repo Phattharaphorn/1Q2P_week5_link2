@@ -1,14 +1,14 @@
 #include <iostream>
 using namespace std;
-int gcd(int a, int b) {
-    if (a % b == 0)
-        return b;
-    return gcd(b, a % b);
-}
-int main()
-{
+int main() {
+    int gcd(int a, int b);
     int a, b;
     cin >> a >> b;
     cout << gcd(a, b);
-    return 0;
+}
+int gcd(int a, int b) {
+    // a >= b
+    if (b == 0) return a;
+    if (a >= b) return gcd(b, a - (((int)(a / b) * b)));
+    return gcd(b, a);
 }
